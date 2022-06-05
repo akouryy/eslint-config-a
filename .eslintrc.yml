@@ -8,7 +8,7 @@ extends:
 globals:
   MyGlobal: true
 rules:
-  comma-dangle: [error, always-multiline]
+  comma-dangle: [error, only-multiline]
   curly: [error, all]
   jsx-quotes: [error, prefer-single]
   multiline-ternary: off
@@ -20,11 +20,18 @@ rules:
   no-var: error
   operator-linebreak: [error, after]
   react-hooks/exhaustive-deps: error
-  sort-imports: error
+  sort-imports:
+    - error
+    - ignoreDeclarationSort: true # -> import/order
   yoda:
     - error
     - never
     - onlyEquality: true
+
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
 
   jsx-a11y/anchor-is-valid:
     - error
