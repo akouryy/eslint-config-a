@@ -1,0 +1,56 @@
+extends:
+  - standard-react
+  - standard-with-typescript
+  - plugin:react-hooks/recommended
+  - plugin:jsx-a11y/recommended
+  # a11y
+  # react-hooks
+globals:
+  MyGlobal: true
+rules:
+  comma-dangle: [error, always-multiline]
+  multiline-ternary: off
+  operator-linebreak: [error, after]
+  react-hooks/exhaustive-deps: error
+  yoda:
+    - error
+    - never
+    - onlyEquality: true
+
+  jsx-a11y/anchor-is-valid:
+    - error
+    - components: [Link]
+      specialLink: [hrefLeft, hrefRight]
+      aspects: [invalidHref, preferButton]
+
+overrides:
+  - files: ['*.ts', '*.tsx']
+    # extends:
+      # - standard-with-typescript
+    parserOptions:
+      project: [./tsconfig.json]
+    rules:
+      '@typescript-eslint/keyword-spacing':
+        - error
+        - overrides:
+            if: { after: false }
+            for: { after: false }
+            while: { after: false }
+      '@typescript-eslint/no-redeclare': off
+      '@typescript-eslint/no-non-null-assertion':
+        - warn
+      '@typescript-eslint/space-before-function-paren':
+        - error
+        - anonymous: never
+          asyncArrow: always
+          named: never
+      '@typescript-eslint/strict-boolean-expressions':
+        - error
+        - allowString: false
+          allowNumber: false
+          allowNullableObject: true
+          # allowNullableBoolean: false
+          # allowNullableString: false
+          # allowNullableNumber: false
+          # allowAny: false
+
