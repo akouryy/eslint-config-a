@@ -9,9 +9,18 @@ globals:
   MyGlobal: true
 rules:
   comma-dangle: [error, always-multiline]
+  curly: [error, all]
+  jsx-quotes: [error, prefer-single]
   multiline-ternary: off
+  no-mixed-operators:
+    - error
+    - groups:
+        - ["&", "|", "^", "~", "<<", ">>", ">>>"]
+        - ["==", "!=", "===", "!==", ">", ">=", "<", "<=", "in", "instanceof"]
+  no-var: error
   operator-linebreak: [error, after]
   react-hooks/exhaustive-deps: error
+  sort-imports: error
   yoda:
     - error
     - never
@@ -30,6 +39,8 @@ overrides:
     parserOptions:
       project: [./tsconfig.json]
     rules:
+      react/prop-types: off
+
       '@typescript-eslint/keyword-spacing':
         - error
         - overrides:
@@ -53,4 +64,3 @@ overrides:
           # allowNullableString: false
           # allowNullableNumber: false
           # allowAny: false
-
