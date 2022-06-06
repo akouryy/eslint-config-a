@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-a",
-  "version": "1.0.2",
+  "version": "4.0.0",
   "description": "Comfortable ESLint configuration",
   "main": "index.js",
   "scripts": {

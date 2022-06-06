@@ -1,10 +1,9 @@
 extends:
-  - standard-react
-  - standard-with-typescript
+  - plugin:react/recommended
   - plugin:react-hooks/recommended
   - plugin:jsx-a11y/recommended
-  # a11y
-  # react-hooks
+  - standard-react
+  - standard-with-typescript
 globals:
   MyGlobal: true
 rules:
@@ -18,6 +17,7 @@ rules:
         - ["&", "|", "^", "~", "<<", ">>", ">>>"]
         - ["==", "!=", "===", "!==", ">", ">=", "<", "<=", "in", "instanceof"]
   no-var: error
+  no-void: off
   operator-linebreak: [error, after]
   react-hooks/exhaustive-deps: error
   sort-imports:
@@ -39,6 +39,8 @@ rules:
       specialLink: [hrefLeft, hrefRight]
       aspects: [invalidHref, preferButton]
 
+  react/self-closing-comp: error
+
 overrides:
   - files: ['*.ts', '*.tsx']
     # extends:
@@ -46,8 +48,10 @@ overrides:
     parserOptions:
       project: [./tsconfig.json]
     rules:
+      comma-dangle: off
       react/prop-types: off
 
+      '@typescript-eslint/comma-dangle': [error, only-multiline]
       '@typescript-eslint/keyword-spacing':
         - error
         - overrides:
