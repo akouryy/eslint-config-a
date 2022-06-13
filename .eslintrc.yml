@@ -39,6 +39,32 @@ rules:
       specialLink: [hrefLeft, hrefRight]
       aspects: [invalidHref, preferButton]
 
+  react/jsx-boolean-value: [error, never]
+  react/jsx-closing-bracket-location: [error, line-aligned]
+  react/jsx-closing-tag-location: error
+  react/jsx-curly-spacing:
+    - error
+    - allowMultiline: true
+      children: true
+  react/jsx-first-prop-new-line:
+    - error
+    - multiline-multiprop
+  react/jsx-indent:
+    - error
+    - 2
+    - checkAttributes: true
+      indentLogicalExpressions: true
+  react/jsx-indent-props: [error, 2]
+  react/jsx-max-props-per-line:
+    - error
+    - maximum: 1
+      when: multiline
+  react/jsx-no-bind:
+    - error
+    - ignoreDOMComponents: true
+      ignoreRefs: true
+  react/jsx-pascal-case: error
+  react/jsx-sort-props: error
   react/self-closing-comp: error
 
 overrides:
