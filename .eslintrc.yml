@@ -7,7 +7,7 @@ extends:
 globals:
   MyGlobal: true
 rules:
-  comma-dangle: [error, only-multiline]
+  comma-dangle: [error, always-multiline]
   curly: [error, all]
   jsx-quotes: [error, prefer-single]
   multiline-ternary: off
@@ -19,7 +19,6 @@ rules:
   no-var: error
   no-void: off
   operator-linebreak: [error, after]
-  react-hooks/exhaustive-deps: error
   sort-imports:
     - error
     - ignoreDeclarationSort: true # -> import/order
@@ -38,7 +37,6 @@ rules:
     - components: [Link]
       specialLink: [hrefLeft, hrefRight]
       aspects: [invalidHref, preferButton]
-
   react/jsx-boolean-value: [error, never]
   react/jsx-closing-bracket-location: [error, line-aligned]
   react/jsx-closing-tag-location: error
@@ -65,7 +63,10 @@ rules:
       ignoreRefs: true
   react/jsx-pascal-case: error
   react/jsx-sort-props: error
+  react/no-array-index-key: error
+  react/require-default-props: off
   react/self-closing-comp: error
+  react-hooks/exhaustive-deps: error
 
 overrides:
   - files: ['*.ts', '*.tsx']
@@ -84,9 +85,16 @@ overrides:
             if: { after: false }
             for: { after: false }
             while: { after: false }
+      '@typescript-eslint/no-extra-parens':
+        - error
+        - functions
       '@typescript-eslint/no-redeclare': off
       '@typescript-eslint/no-non-null-assertion':
         - warn
+      '@typescript-eslint/no-unused-vars':
+        - error
+        - varsIgnorePattern: '^_'
+          argsIgnorePattern: '^_'
       '@typescript-eslint/space-before-function-paren':
         - error
         - anonymous: never
