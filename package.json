@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .js,.ts,.tsx --fix",
+    "preinstall": "npx only-allow pnpm", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,7 @@
     "react",
     "typescript"
   ],
-  "author": "",
+  "author": "akouryy",
   "license": "MIT",
   "dependencies": {
     "js-yaml": "^4.1.0"
