@@ -41,7 +41,9 @@ rules:
   comma-style: error
   computed-property-spacing: error
   curly: [error, all]
+  default-case: error
   default-case-last: error
+  default-param-last: error
   dot-location: [error, property]
   dot-notation: [error, allowKeywords: true]
   eol-last: error
@@ -256,7 +258,9 @@ rules:
   react/no-is-mounted: error
   react/no-render-return-value: error
   react/no-string-refs: error
-  react/no-unescaped-entities: error
+  react/no-unescaped-entities:
+    - error
+    - forbid: ['>', '}']
   react/no-unknown-property: error
   react/no-unsafe: off
   react/no-unused-prop-types: error
@@ -277,6 +281,7 @@ overrides:
       camelcase: off
       comma-dangle: off
       comma-spacing: off
+      default-param-last: off
       dot-notation: off
       func-call-spacing: off
       indent: off
@@ -295,11 +300,12 @@ overrides:
       no-useless-constructor: off
       prefer-promise-reject-errors: off
       quotes: off
-      react/prop-types: off
       semi: off
       space-before-function-paren: off
-
+      import/named: off
+      react/prop-types: off
       '@typescript-eslint/array-type': [error, default: array-simple]
+      '@typescript-eslint/await-thenable': error
       '@typescript-eslint/brace-style': [error, 1tbs, allowSingleLine: true]
       '@typescript-eslint/comma-dangle': [error, always-multiline]
       '@typescript-eslint/comma-spacing': error
@@ -308,6 +314,7 @@ overrides:
         - assertionStyle: as
           objectLiteralTypeAssertions: never
       '@typescript-eslint/consistent-type-definitions': error
+      '@typescript-eslint/default-param-last': error
       '@typescript-eslint/dot-notation': [error, allowKeywords: true]
       '@typescript-eslint/explicit-function-return-type': [error, allowExpressions: true]
       '@typescript-eslint/func-call-spacing': error
@@ -352,6 +359,7 @@ overrides:
           trailingUnderscore: allow
       '@typescript-eslint/no-base-to-string': error
       '@typescript-eslint/no-dupe-class-members': error
+      '@typescript-eslint/no-dynamic-delete': error
       '@typescript-eslint/no-extra-parens': [error, functions]
       '@typescript-eslint/no-extraneous-class': [error, allowWithDecorator: true]
       '@typescript-eslint/no-floating-promises': error
@@ -362,6 +370,10 @@ overrides:
       '@typescript-eslint/no-redeclare': off
       '@typescript-eslint/no-throw-literal': error
       '@typescript-eslint/no-unnecessary-boolean-literal-compare': error
+      '@typescript-eslint/no-unsafe-assignment': error
+      '@typescript-eslint/no-unsafe-call': error
+      '@typescript-eslint/no-unsafe-member-access': error
+      '@typescript-eslint/no-unsafe-return': error
       '@typescript-eslint/no-unused-expressions': error
       '@typescript-eslint/no-unused-vars':
         - error
@@ -379,6 +391,8 @@ overrides:
       '@typescript-eslint/prefer-optional-chain': error
       '@typescript-eslint/prefer-readonly': error
       '@typescript-eslint/prefer-reduce-type-parameter': error
+      '@typescript-eslint/prefer-regexp-exec': error
+      '@typescript-eslint/prefer-ts-expect-error': error
       '@typescript-eslint/promise-function-async': error
       '@typescript-eslint/quotes': [error, single, avoidEscape: true]
       '@typescript-eslint/require-array-sort-compare': error
@@ -396,3 +410,4 @@ overrides:
         - allowString: false
           allowNumber: false
       '@typescript-eslint/type-annotation-spacing': error
+      '@typescript-eslint/unbound-method': [error, ignoreStatic: true]
