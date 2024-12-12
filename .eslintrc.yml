@@ -34,10 +34,7 @@ rules:
   array-callback-return: [error, checkForEach: true]
   arrow-spacing: error
   block-spacing: error
-  brace-style: [error, 1tbs, allowSingleLine: true]
   camelcase: error
-  comma-dangle: [error, always-multiline]
-  comma-spacing: error
   comma-style: error
   computed-property-spacing: error
   curly: [error, all]
@@ -48,40 +45,9 @@ rules:
   dot-notation: [error, allowKeywords: true]
   eol-last: error
   eqeqeq: [error, always, null: ignore]
-  func-call-spacing: error
   generator-star-spacing: error
   handle-callback-err: [error, "^(err|error)$"]
-  indent:
-    - error
-    - 2
-    - SwitchCase: 0
-      flatTernaryExpressions: false
-      ignoredNodes:
-        - JSXAttribute
-        - JSXClosingElement
-        - JSXClosingFragment
-        - JSXElement
-        - "JSXElement > *"
-        - JSXEmptyExpression
-        - JSXExpressionContainer
-        - JSXFragment
-        - JSXIdentifier
-        - JSXMemberExpression
-        - JSXNamespacedName
-        - JSXOpeningElement
-        - JSXOpeningFragment
-        - JSXSpreadAttribute
-        - JSXSpreadChild
-        - JSXText
-        - "TemplateLiteral *"
-  jsx-quotes: [error, prefer-single]
   key-spacing: error
-  keyword-spacing:
-    - error
-    - overrides:
-        if: { after: false }
-        for: { after: false }
-        while: { after: false }
   multiline-ternary: off
   new-parens: error
   no-array-constructor: error
@@ -91,7 +57,6 @@ rules:
   no-eval: error
   no-extend-native: error
   no-extra-bind: error
-  no-extra-parens: [error, functions]
   no-floating-decimal: error
   no-implied-eval: error
   no-iterator: error
@@ -159,19 +124,12 @@ rules:
   prefer-promise-reject-errors: error
   prefer-regex-literals: error
   quote-props: [error, as-needed]
-  quotes: [error, single, avoidEscape: true]
   rest-spread-spacing: error
-  semi: [error, never]
   semi-spacing: error
   sort-imports:
     - error
     - ignoreDeclarationSort: true # -> import/order
   space-before-blocks: error
-  space-before-function-paren:
-    - error
-    - anonymous: never
-      asyncArrow: always
-      named: never
   space-in-parens: error
   space-infix-ops: error
   space-unary-ops: error
@@ -277,15 +235,9 @@ overrides:
     parserOptions:
       project: [./tsconfig.json]
     rules:
-      brace-style: off
       camelcase: off
-      comma-dangle: off
-      comma-spacing: off
       default-param-last: off
       dot-notation: off
-      func-call-spacing: off
-      indent: off
-      keyword-spacing: off
       new-cap: off
       no-array-constructor: off
       no-dupe-class-members: off
@@ -299,16 +251,10 @@ overrides:
       no-use-before-define: off
       no-useless-constructor: off
       prefer-promise-reject-errors: off
-      quotes: off
-      semi: off
-      space-before-function-paren: off
       import/named: off
       react/prop-types: off
       '@typescript-eslint/array-type': [error, default: array-simple]
       '@typescript-eslint/await-thenable': error
-      '@typescript-eslint/brace-style': [error, 1tbs, allowSingleLine: true]
-      '@typescript-eslint/comma-dangle': [error, always-multiline]
-      '@typescript-eslint/comma-spacing': error
       '@typescript-eslint/consistent-type-assertions':
         - error
         - assertionStyle: as
@@ -317,36 +263,6 @@ overrides:
       '@typescript-eslint/default-param-last': error
       '@typescript-eslint/dot-notation': [error, allowKeywords: true]
       '@typescript-eslint/explicit-function-return-type': [error, allowExpressions: true]
-      '@typescript-eslint/func-call-spacing': error
-      '@typescript-eslint/indent':
-        - error
-        - 2
-        - SwitchCase: 0
-          flatTernaryExpressions: false
-          ignoredNodes:
-            - JSXAttribute
-            - JSXClosingElement
-            - JSXClosingFragment
-            - JSXElement
-            - "JSXElement > *"
-            - JSXEmptyExpression
-            - JSXExpressionContainer
-            - JSXFragment
-            - JSXIdentifier
-            - JSXMemberExpression
-            - JSXNamespacedName
-            - JSXOpeningElement
-            - JSXOpeningFragment
-            - JSXSpreadAttribute
-            - JSXSpreadChild
-            - JSXText
-            - "TemplateLiteral *"
-      '@typescript-eslint/keyword-spacing':
-        - error
-        - overrides:
-            if: { after: false }
-            for: { after: false }
-            while: { after: false }
       '@typescript-eslint/method-signature-style': error
       '@typescript-eslint/naming-convention':
         - error
@@ -360,7 +276,6 @@ overrides:
       '@typescript-eslint/no-base-to-string': error
       '@typescript-eslint/no-dupe-class-members': error
       '@typescript-eslint/no-dynamic-delete': error
-      '@typescript-eslint/no-extra-parens': [error, functions]
       '@typescript-eslint/no-extraneous-class': [error, allowWithDecorator: true]
       '@typescript-eslint/no-floating-promises': error
       '@typescript-eslint/no-for-in-array': error
@@ -368,7 +283,6 @@ overrides:
       '@typescript-eslint/no-invalid-void-type': error
       '@typescript-eslint/no-non-null-assertion': warn
       '@typescript-eslint/no-redeclare': off
-      '@typescript-eslint/no-throw-literal': error
       '@typescript-eslint/no-unnecessary-boolean-literal-compare': error
       '@typescript-eslint/no-unsafe-assignment': error
       '@typescript-eslint/no-unsafe-call': error
@@ -385,6 +299,7 @@ overrides:
           varsIgnorePattern: '^_'
       '@typescript-eslint/no-use-before-define': error
       '@typescript-eslint/no-useless-constructor': error
+      '@typescript-eslint/only-throw-error': error
       '@typescript-eslint/prefer-function-type': error
       '@typescript-eslint/prefer-includes': error
       '@typescript-eslint/prefer-nullish-coalescing': error
@@ -394,20 +309,18 @@ overrides:
       '@typescript-eslint/prefer-regexp-exec': error
       '@typescript-eslint/prefer-ts-expect-error': error
       '@typescript-eslint/promise-function-async': error
-      '@typescript-eslint/quotes': [error, single, avoidEscape: true]
       '@typescript-eslint/require-array-sort-compare': error
-      '@typescript-eslint/restrict-plus-operands': [error, checkCompoundAssignments: true]
+      '@typescript-eslint/restrict-plus-operands':
+        - error
+        - allowAny: false
+          allowBoolean: false
+          allowNullish: false
+          allowNumberAndString: false
+          allowRegExp: false
       '@typescript-eslint/restrict-template-expressions': [error, allowNumber: true]
       '@typescript-eslint/return-await': [error, always]
-      '@typescript-eslint/semi': [error, never]
-      '@typescript-eslint/space-before-function-paren':
-        - error
-        - anonymous: never
-          asyncArrow: always
-          named: never
       '@typescript-eslint/strict-boolean-expressions':
         - error
         - allowString: false
           allowNumber: false
-      '@typescript-eslint/type-annotation-spacing': error
       '@typescript-eslint/unbound-method': [error, ignoreStatic: true]
