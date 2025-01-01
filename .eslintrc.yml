@@ -312,3 +312,11 @@ overrides:
         - allowString: false
           allowNumber: false
       '@typescript-eslint/unbound-method': [error, ignoreStatic: true]
+
+  - # for Remix
+    files: ['app/routes/*.tsx', 'app/routes/*/route.tsx']
+    rules:
+      # Allow return types of loaders and actions to be inferred
+      '@typescript-eslint/explicit-function-return-type': off
+      # Allow throwing Responses in loaders and actions
+      '@typescript-eslint/only-throw-error': off
