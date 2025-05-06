@@ -1,9 +1,10 @@
 {
   "name": "eslint-config-a",
   "type": "module",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "description": "Comfortable ESLint configuration",
   "main": "build/index.js",
+  "types": "./build/index.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "run-s lint:eslint lint:prettier lint:eslint:dryrun",
