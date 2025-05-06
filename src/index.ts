@@ -9,18 +9,13 @@ import love from 'eslint-config-love'
 import type { plugin as importPlugin } from 'eslint-plugin-import'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import react, { type ReactFlatConfig } from 'eslint-plugin-react'
-import tailwind from 'eslint-plugin-tailwindcss'
 import type { ESLintRules } from 'eslint/rules'
-import lodash from 'lodash'
 import tseslint from 'typescript-eslint'
 
 type Rules = Partial<
   { [K in keyof ESLintRules as string extends K ? never : K]: ESLintRules[K] } & (typeof importPlugin)['rules'] &
     Record<
-      | `react/${keyof typeof react.configs.all.rules}`
-      | `react-hooks/${string}`
-      | `tailwindcss/${string}`
-      | `@typescript-eslint/${string}`,
+      `react/${keyof typeof react.configs.all.rules}` | `react-hooks/${string}` | `@typescript-eslint/${string}`,
       TSESLint.SharedConfig.RuleEntry
     >
 >
@@ -43,12 +38,6 @@ export default Array<TSESLint.FlatConfig.Config>(
   (react.configs.flat as { 'jsx-runtime': ReactFlatConfig })['jsx-runtime'],
   /* eslint-enable @typescript-eslint/no-unsafe-type-assertion */
   ...new FlatCompat().extends('plugin:react-hooks/recommended'),
-  ...tailwind.configs['flat/recommended'].map<TSESLint.FlatConfig.Config>(config => ({
-    ...config,
-    ...(config.rules != null ?
-      { rules: lodash.mapValues(config.rules, value => (value === 'warn' ? 'error' : value)) }
-    : {}),
-  })),
   {
     name: 'base settings',
     settings: {
